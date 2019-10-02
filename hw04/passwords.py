@@ -2,6 +2,7 @@
 # returns a unique user name as well as three suggested passwords,
 # each constructed using different rules.
 import random as rnd
+ASTERISK = '*'
 
 
 def main():
@@ -26,12 +27,10 @@ def generate_user_name(first_name, last_name):
     """Given a user's first name and last name, returns a unique user name,
     using the specific rule."""
     first_letter = first_name[0]
-    last_name_extra = last_name
-    for _ in range(7):
-        last_name_extra += chr(rnd.randint(ord('a'), ord('z')))
+    last_name_extra = last_name + ASTERISK * 7
+    last_name_pick = last_name_extra[:7]
     rnd_num = str(rnd.randint(0, 99))
-
-    user_name = (first_letter + last_name_extra[:7] + rnd_num).lower()
+    user_name = (first_letter + last_name_pick + rnd_num).lower()
 
     return user_name
 
@@ -39,31 +38,30 @@ def generate_user_name(first_name, last_name):
 def generate_password1(first_name, last_name):
     """Given a user's first name and last name, returns a unique password1,
     using the specific rule."""
-    first_name_replaced = replace_chrs(first_name)
     rnd_num = str(rnd.randint(0, 99))
-    last_name_replaced = replace_chrs(last_name)
-    password1 = first_name_replaced + rnd_num + last_name_replaced
+    password1 = (first_name + rnd_num + last_name).lower()
+    password1 = replace_chrs(password1)
 
     return password1
 
 
-def replace_chrs(name):
-    """Given a name, returns a replaced name, using a specific rule."""
-    name_replaced = ""
+def replace_chrs(word):
+    """Given a word, returns a replaced word, using a specific rule."""
+    word_replaced = ""
 
-    for c in name:
-        if c.lower() == 'a':
-            name_replaced += '@'
-        elif c.lower() == 'o':
-            name_replaced += '0'
-        elif c.lower() == 'l':
-            name_replaced += '1'
-        elif c.lower() == 's':
-            name_replaced += '$'
+    for c in word:
+        if c == 'a':
+            word_replaced += '@'
+        elif c == 'o':
+            word_replaced += '0'
+        elif c == 'l':
+            word_replaced += '1'
+        elif c == 's':
+            word_replaced += '$'
         else:
-            name_replaced += c.lower()
+            word_replaced += c
 
-    return name_replaced
+    return word_replaced
 
 
 def generate_password2(first_name, last_name, favorite_word):
@@ -73,12 +71,12 @@ def generate_password2(first_name, last_name, favorite_word):
     password2 = ""
 
     for e in words_list:
-        password2 += abbreviate_words(e)
+        password2 += abbreviate_word(e)
 
     return password2
 
 
-def abbreviate_words(word):
+def abbreviate_word(word):
     """Given a word, returns an "acronym", using the specific rule."""
     return word[0].lower() + word[-1].upper()
 
