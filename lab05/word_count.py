@@ -1,3 +1,8 @@
+# This program prompts the user for a file name, then prints out
+# counts of words, non-whitespace characters (including punctuation), and
+# alphanumeric characters (letters and numbers, excluding punctuation).
+
+
 def main():
     filename = input("Enter the file name: ")
     try:
