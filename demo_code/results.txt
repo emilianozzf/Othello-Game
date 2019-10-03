@@ -1,0 +1,45 @@
+Processed poem:
+Titile: And Thou art Dead, as Young and Fair
+Author: Lord Byron (George Gordon)
+Lines: 80
+
+Processed poem:
+Titile: Floating Island
+Author: Dorothy Wordsworth
+Lines: 35
+
+Processed poem:
+Titile: I Wandered Lonely as a Cloud
+Author: William Wordsworth
+Lines: 28
+
+Processed poem:
+Titile: Introduction to the Songs of Experience
+Author: William Blake
+Lines: 24
+
+Processed poem:
+Titile: Modern Love
+Author: John Keats
+Lines: 18
+
+Processed poem:
+Titile: Ozymandias
+Author: Percy Bysshe Shelley
+Lines: 15
+
+Processed poem:
+Titile: Paradise Lost: Book  1 (1674 version)
+Author: John Milton
+Lines: 812
+
+Processed poem:
+Titile: The Rime of the Ancient Mariner (text of 1834)
+Author: Samuel Taylor Coleridge
+Lines: 786
+
+Processed poem:
+Titile: Stanzas ["Oh, come to me in dreams, my love!"]
+Author: Mary Wollstonecraft Shelley
+Lines: 20
+
