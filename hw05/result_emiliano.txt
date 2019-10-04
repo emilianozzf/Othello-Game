@@ -1,0 +1,44 @@
+# Test case 1
+(base) Jerrys-MacBook-Pro:hw05 zhuzhenfang$ python3 pump_analysis.py 
+Please enter the file name: no_such_file.txt
+Unable to open no_such_file.txt
+
+# Test case 2
+(base) Jerrys-MacBook-Pro:hw05 zhuzhenfang$ python3 pump_analysis.py
+
+Please enter the file name: short_data.txt
+Data covers a total of 1.0 hours
+(That's 0.041666666666666664 days)
+
+Pump was running for 7 minutes, producing 14 gallons
+(That's 336.0 gallons per day)
+
+Pump required a total of 6795 watt minutes of power
+(That's 0.11325 kWh)
+
+It took 11 minutes of data to reach 5 gallons.
+It took -1 minutes of data to reach 100 gallons.
+
+There is no information on water softener recharges.
+
+
+# Test case 3
+(base) Jerrys-MacBook-Pro:hw05 zhuzhenfang$ python3 pump_analysis.py 
+Please enter the file name: pump_data.txt
+Data covers a total of 1440.0 hours
+(That's 60.0 days)
+
+Pump was running for 7453 minutes, producing 14906 gallons
+(That's 248.43333333333334 gallons per day)
+
+Pump required a total of 7151745 watt minutes of power
+(That's 119.19575 kWh)
+
+It took 23 minutes of data to reach 5 gallons.
+It took 70 minutes of data to reach 100 gallons.
+
+Information on water softener recharges:
+179 minute run started at 9799
+173 minute run started at 29944
+228 minute run started at 48978
+244 minute run started at 69133
