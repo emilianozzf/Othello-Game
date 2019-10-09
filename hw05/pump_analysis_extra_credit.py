@@ -1,24 +1,24 @@
 # This program reads data from a file, does some analysis on it, and finally
 # prints the report.
 
+# Sets all the conversion factors as constants
+BTM_CRITICAL = 10
+TOP_CRITICAL = 900
+GALLONS_PER_MIN = 2
+LONG_CRITICAL = 120
+GOAL_GALLONS1 = 5
+GOAL_GALLONS2 = 100
+MINS_PER_HOUR = 60
+HOURS_PER_DAY = 24
+W_PER_KW = 1000
+
 
 def main():
-    # Sets all the conversion factors as constants
-    BTM_CRITICAL = 10
-    TOP_CRITICAL = 900
-    GALLONS_PER_MIN = 2
-    LONG_CRITICAL = 120
-    GOAL_GALLONS1 = 5
-    GOAL_GALLONS2 = 100
-    MINS_PER_HOUR = 60
-    HOURS_PER_DAY = 24
-    W_PER_KW = 1000
-
     # Opens a file and handles exceptions
     filename = input("Please enter the file name: ")
     try:
         f = open(filename, 'r')
-    except:
+    except FileNotFoundError:
         print("Unable to open", filename)
         return
 
@@ -102,5 +102,6 @@ def main():
             print(long_times[i], "minutes run started at", starts[i])
     else:
         print("There is no information on water softener recharges.")
+
 
 main()
