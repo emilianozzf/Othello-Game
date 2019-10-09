@@ -7,6 +7,7 @@ def main():
     BTM_CRITICAL = 10
     TOP_CRITICAL = 900
     GALLONS_PER_MIN = 2
+    LONG_CRITICAL = 120
     GOAL_GALLONS1 = 5
     GOAL_GALLONS2 = 100
     MINS_PER_HOUR = 60
@@ -29,6 +30,10 @@ def main():
     tot_wmins = 0
     mins_to_reach1 = -1
     mins_to_reach2 = -1
+    start = 0
+    starts = []
+    long_time = 0
+    long_times = []
 
     # Reads data line by line
     for line in f:
@@ -43,6 +48,23 @@ def main():
             # Updates the total number of gallons produced
             tot_gallons += GALLONS_PER_MIN
             # Updates the starting point
+            if long_time == 0:
+                start = dur_in_mins
+            # Updates the duration of a continuous operation of the pump
+            long_time += 1
+        else:
+            # Checks if the duration of a continuous operation of the pump is
+            # larger than or equal to 120 minutes
+            if long_time > LONG_CRITICAL:
+                # Keeps record of the qualified long period of operation
+                long_times.append(long_time)
+                # Resets the duration of a continuous operation of the pump
+                long_time = 0
+                # Keeps record of the qualified starting point
+                starts.append(start)
+            else:
+                # Resets the duration of a continuous operation of the pump
+                long_time = 0
         # Updates the total power used by the pump in Watt minutes
         tot_wmins += wmins_per_minute
         # Computes how long it took to consume a certain quantity of water
@@ -74,5 +96,11 @@ def main():
           GOAL_GALLONS1, "gallons.")
     print("It took", mins_to_reach2, "minutes of data to reach",
           GOAL_GALLONS2, "gallons.\n")
+    print("Information on water softener recharges:")
+    if long_times:
+        for i in range(len(long_times)):
+            print(long_times[i], "minutes run started at", starts[i])
+    else:
+        print("There is no information on water softener recharges.")
 
 main()
