@@ -1,0 +1,15 @@
+7.7 Exercises
+1. A: Yes.
+2. A: Yes.sdd
+3. A: Yes.
+4. A: Yes.
+5. A: No.
+6. A: No.
+7. A: Yes.
+8. A: The program prints 10 instead because proc() doesn't return any value so
+that the value stored in the num variable is not changed at all.
+9. A: Yes. It is legal to use the same variable name x in two different
+functions becasue the variables in a certain function are local to this
+specifit function only.
+10. A: Yes. Variable names are just symbols and doesn't have any influence on
+thier functions.
