@@ -65,7 +65,8 @@ def draw_tail_fin(width):
     """Draws the tail fin of the rocket
     Integer -> None"""
     # Modifies the top line width of the tail fin
-    if (width % 2 != 0) and ((width // 2 % 2) == 0):
+    if ((width % 2 != 0) and ((width // 2 % 2) == 0) or
+       (width % 2 == 0) and ((width // 2 % 2) != 0)):
         top = width // 2 + 1
     else:
         top = width // 2
