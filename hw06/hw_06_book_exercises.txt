@@ -1,15 +1,87 @@
 7.7 Exercises
-1. A: Yes.
-2. A: Yes.sdd
-3. A: Yes.
-4. A: Yes.
-5. A: No.
-6. A: No.
-7. A: Yes.
-8. A: The program prints 10 instead because proc() doesn't return any value so
+1. A:
+Yes, it is a legal Python program for the following reasons.
+
+For one thing, the function proc() is well-defined.
+
+For another, when the function proc() is called in main(), it returns the value
+11, which is then assigned to the variable x.
+
+The above behaviors are totally legal in Python.
+
+
+2. A:
+Yes, it is a legal Python program for the following reasons.
+
+For one thing, the function proc() is well-defined.
+
+For another, when the function proc() is called twice in main(), it returns the
+value 7 and 6 that are assigned to the the variable x and y respectively.
+
+The above behaviors are totally legal in Python.
+
+
+3. A:
+Yes, it is a legal Python program for the following reasons.
+
+For one thing, the function proc() is well-defined.
+
+For another, when the function proc() is called in main(), it first prints the
+value 7 and then returns the value None that is assigned to the variable x.
+
+The above behaviors are totally legal in Python.
+
+
+4. A:
+Yes, it is a legal Python program for the following reasons.
+
+For one thing, the function proc() is well-defined.
+
+For another, when the function is called in main() with two input values, it
+returns the value 26 that is then passed in print(). Then the print() function
+prints out the input value 26.
+
+The above behaviors are totally legal in Python.
+
+
+5. A:
+No, it is not a legal Python program for the following reason.
+
+The function proc() is defined to takes two arguments. However, when it is
+called in the main() function, it only takes one argument, which produces a
+TypeError.
+
+
+6. A:
+No, it is not a legal Python program for the following reason.
+
+The proc() function is defined to takes just one argument. However, when
+it is called in the main() function, it takes two argument, which produces a
+TypeError.
+
+
+7. A:
+Yes, it is a legal Python program for the following reasons.
+
+For one thing, the function proc() is well-defined.
+
+For another, when the function proc() is called in the main() function, it
+prints out the value 100.
+
+The above behaviors are totally legal in Python.
+
+
+8. A:
+The program prints 10 instead because proc() doesn't return any value so
 that the value stored in the num variable is not changed at all.
-9. A: Yes. It is legal to use the same variable name x in two different
-functions becasue the variables in a certain function are local to this
-specifit function only.
-10. A: Yes. Variable names are just symbols and doesn't have any influence on
-thier functions.
+
+
+9. A:
+Yes. It is legal to use the same variable name x in two different
+functions because the variables in a certain function are local to this
+specific function only.
+
+
+10. A:
+Yes. Variable names are just symbols and doesn't have any influence on
+their functions.

@@ -1,98 +1,75 @@
-# This program prompts the user for two integers of any length, adds them
-# together, counts the number of times the "carry" operation needs
-# to be carried out, and prints out the result
+# This program prompts the user for two integers of any length and adds them
+# together. In addition to adding them, it also counts the number of times
+# the "carry" operation needs to be carried out.
 
 
 def main():
-    # Prompts the user for the first number and cast it to an integer
-    num1 = int(input("Enter the first number: "))
-    # Prompts the user for the first number and cast it to an integer
-    num2 = int(input("Enter the second number: "))
-    # Adds two input numbers
-    sum = num1 + num2
-    # Computes the number of places of the first input number
-    num_places1 = get_num_places(num1)
-    # Computes the number of places of the second input number
-    num_places2 = get_num_places(num2)
-    # Get the list of digits of the first input number
-    splitted1 = split_num(num1, num_places1)
-    # Get the list of digits of the second input number
-    splitted2 = split_num(num2, num_places2)
-    # Get two same-length lists of digits of
-    splitted1, splitted2 = get_same_len_splitted(splitted1, splitted2)
-    # Computes the number of carries needed
-    num_carries = count_carries(splitted1, splitted2)
-    # Prints out the result
-    print(num1, "+", num2, "=", sum)
-    print("Number of carries:", num_carries)
+    # Prompts the user for the first integer
+    in_num1 = int(input("Enter the first number: "))
+    # Prompts the user for the second integer
+    in_num2 = int(input("Enter the second number: "))
+    # Represents digits of the first integer in a list
+    digits_of_num1 = list(str(in_num1))
+    # Represents digits of the second integer in a list
+    digits_of_num2 = list(str(in_num2))
+    # Reverses the digits in the list1
+    digits_of_num1.reverse()
+    # Reverses the digits in the list1
+    digits_of_num2.reverse()
+    # Appends '0' to one of the two digits lists to make them of same length
+    get_same_length_lists(digits_of_num1, digits_of_num2)
+    # Computes the length of two same-length lists
+    length = len(digits_of_num1)
+    # Counts carry operations that need to be carried out
+    carries = count_carries(digits_of_num1, digits_of_num2, length)
+    # Computes the number of carry operations that need to be carried out
+    num_of_carries = carries.count(1)
+    # Prints the result
+    print(in_num1, '+', in_num2, '=', in_num1 + in_num2)
+    print("Number of carries:", num_of_carries)
 
 
-def get_num_places(num):
+def get_same_length_lists(digits_list1, digits_list2):
     """
-    Given a number, returns its number of places
-    Number -> Number
+    Appends '0' to one of the two digits lists to make them of same length
+    List List -> None
     """
-    # Returns the number of places of the input number
-    return len(str(num))
-
-
-def split_num(num, num_of_places):
-    """
-    Given a number, returns a list of its digits
-    Number Number -> List
-    """
-    # Ensures the splitted list has well-defined minimum value
-    splitted = []
-    # Loops through digits of the input number
-    for i in range(num_of_places):
-        # Computes the digit and adds it to the list
-        splitted.append(num % 10)
-        # Updates the num variable
-        num //= 10
-    # Returns the result list of digits
-    return splitted
-
-
-def get_same_len_splitted(splitted1, splitted2):
-    """
-    Given two lists of digits, returns two same-length lists of digits
-    List List -> List List
-    """
-    # Computes the length of list1
-    length1 = len(splitted1)
-    # Computes the length of list2
-    length2 = len(splitted2)
-    # Mutated the lists to be of same length
-    if length1 <= length2:
-        for i in range(length2 - length1):
-            splitted1.append(0)
+    # Computes the length of the input list1
+    length_of_digits_list1 = len(digits_list1)
+    # Computes the length of the input list2
+    length_of_digits_list2 = len(digits_list2)
+    # Checks which one of the two input lists is longer, and appends '0' to the
+    # other one
+    if length_of_digits_list1 <= length_of_digits_list2:
+        for _ in range(length_of_digits_list2 - length_of_digits_list1):
+            digits_list1.append('0')
     else:
-        for i in range(length1 - length2):
-            splitted2.append(0)
-    # Returns the modified lists
-    return splitted1, splitted2
+        for _ in range(length_of_digits_list1 - length_of_digits_list2):
+            digits_list2.append('0')
 
 
-def count_carries(splitted1, splitted2):
+def count_carries(digits_list1, digits_list2, length):
     """
-    Given two same-length lists of digits, returns their number of carries
-    List List -> Number
+    Counts carry operations that need to be carried out
+    List List Number -> List
     """
-    # Ensures the variables have well-defined minimum values
-    num_carries = 0
-    is_carried = []
-    # Computes the number of carries
-    for i in range(len(splitted1)):
-        if splitted1[i] + splitted2[i] >= 10:
-            is_carried.append(True)
-            num_carries += 1
-        elif splitted1[i] + splitted2[i] == 9 and i >= 1 and is_carried[i-1]:
-            is_carried.append(True)
-            num_carries += 1
+    # Ensures the list recording the carry operations has a well-defined
+    # minimum value
+    carries = [0]
+    # Loops through each digit of the input lists
+    for _ in range(length):
+        # Computs the sum for the column
+        sub_sum = int(digits_list1[_]) + int(digits_list2[_]) + carries[_]
+        # Checks if the sum is larger than 9
+        if sub_sum > 9:
+            # Records there is a carry operation
+            carries.append(1)
+        # Otherwise
         else:
-            is_carried.append(False)
-    # Returns the number of carries
-    return num_carries
+            # Records there is no carry operation
+            carries.append(0)
+    # Return the list recording the carry operations
+    return carries
 
 
 main()

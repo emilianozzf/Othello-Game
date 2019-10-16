@@ -3,40 +3,41 @@
 
 
 def main():
-    # Ensures the tri_nums has well-defined minimum value
+    # Ensures the triangular numbers' list has well-defined minimum value
     tri_nums = []
-    # Repeatedly prompts the user for numbers
+    # Repeatedly executes until the user inputs 'done'
     while True:
         # Prompts the user for a number or 'done'
         user_input = input("Enter a number, or enter 'done': ")
         # Checks if the user input is 'done'
         if user_input == "done":
-            # Prints out the list of triangluar numbers and break out
+            # Prints out the list of triangluar numbers
             print(tri_nums)
+            # Breaks out of the loop
             break
-        # Otherwise, computes the coresponding triangular number
+        # Otherwise, the user inputs a number
         else:
             # Casts the input string to an integer
             in_num = int(user_input)
             # Computes the triangluar number of the input number
-            tri_num = get_tri_num(in_num)
+            tri_num = triangular_number(in_num)
             # Prints out the result
             print("The triangular number for", in_num, "is", tri_num)
-            # Adds the triangular number to the tri_num list
+            # Adds the triangular number to the triangular numbers' list
             tri_nums.append(tri_num)
 
 
-def get_tri_num(num):
+def triangular_number(num):
     """
     Given a number, returns its triangular number
     Number -> Number
     """
     # Ensures the tri_num variable has well-defined minimum value
     tri_num = 0
-    # Computes num's triangular number
+    # Computes the triangular number
     for _ in range(1, num + 1):
         tri_num += _
-    # Returns num's triangular number
+    # Returns the triangular number
     return tri_num
 
 
