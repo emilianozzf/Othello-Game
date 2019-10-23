@@ -3,11 +3,15 @@ from bench import Bench
 
 
 def main():
+    # Introduces to the team manager system
     print("Welcome to the team manager.")
+    # Creates objects for the team and the bench.
     the_team = Team()
     the_bench = Bench()
 
+    # Interacts with the user until done
     while True:
+        # Prompts the user for what he wants to do
         command = (input("What do you want to do?\n")).lower()
 
         if command == "done":
@@ -34,15 +38,27 @@ def main():
 
 
 def do_set_team_name(team):
+    """
+    Sets the team name
+    Team -> None
+    """
     name = input("What do you want to name the team?\n")
     team.set_team_name(name)
 
 
 def do_show_team_roster(team):
+    """
+    Displays the full team roster
+    Team -> None
+    """
     team.show_roster()
 
 
 def do_add_player_to_team(team):
+    """
+    Creates a new player and adds the player to the team
+    Team -> None
+    """
     player_name = input("What's the player's name?\n")
     player_number = input("What's " + player_name + "'s number?\n")
     player_position = input("What's " + player_name + "'s position?\n")
@@ -51,6 +67,11 @@ def do_add_player_to_team(team):
 
 
 def do_check_position_filled(team):
+    """
+    Determines whether a given position has at least one player filling it,
+    then prints the appropriate message
+    Team -> None
+    """
     position = input("What position are you checking for?\n")
     if team.is_position_filled(position):
         print("Yes, the", position, "position is filled")
@@ -59,6 +80,10 @@ def do_check_position_filled(team):
 
 
 def do_send_player_to_bench(team, bench):
+    """
+    Sends an existing player to the bench
+    Team Bench -> None
+    """
     name = input("Who do you want to send to the bench?\n")
     for player in team.players:
         if player.name == name:
@@ -69,6 +94,11 @@ def do_send_player_to_bench(team, bench):
 
 
 def do_get_player_from_bench(bench):
+    """
+    Gets the best-rested player by name from the bench (i.e. the player who has
+    been on the bench longest)
+    Bench -> None
+    """
     if bench.players:
         print("Got", bench.get_from_bench(), "from bench")
     else:
@@ -76,6 +106,10 @@ def do_get_player_from_bench(bench):
 
 
 def do_cut_player(team, bench):
+    """
+    Cuts the player
+    Team Bench -> None
+    """
     name = input("Who do you want to cut?\n")
     if name in bench.players:
         print(name, "is on the bench, so you cannot cut him!")
@@ -84,10 +118,18 @@ def do_cut_player(team, bench):
 
 
 def do_show_bench(bench):
+    """
+    Shows the names of the players who are currently on the bench
+    Bench -> None
+    """
     bench.show_bench()
 
 
 def do_not_understand():
+    """
+    Deals with mis-typed command
+    None -> None
+    """
     print("I didn't understand that command")
 
 
