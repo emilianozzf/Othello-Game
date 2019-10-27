@@ -15,6 +15,7 @@ def main(file_name):
 
 
 def print_output(collection):
+    """Prints out the output"""
     for item in collection:
         print(item[0]+":  \t", round(item[1], 3))
 
