@@ -113,4 +113,5 @@ def generate_random_order_list(word1, word2, word3):
 
     return rnd_words_list
 
+
 main()

@@ -29,35 +29,37 @@ def main():
     yes = "yes"
     no = "no"
 
-    def mini_fever_diagnosis_system():
-        if input(questions[3]).lower() == yes:
-            print(answers[1])
-        elif input(questions[4]).lower() == yes:
-            print(answers[2])
-        elif input(questions[5]).lower() == yes:
-            print(answers[3])
-        elif input(questions[6]).lower() == yes:
-            print(answers[4])
-        elif input(questions[7]).lower() == yes:
-            print(answers[5])
-        elif input(questions[8]).lower() == yes:
-            print(answers[6])
-        else:
-            print(answers[2])
-
     if input(questions[0]).lower() == yes:
         if input(questions[1]).lower() == yes:
             print(answers[0])
         elif input(questions[2]).lower() == yes:
             print(answers[1])
         else:
-            mini_fever_diagnosis_system()
+            mini_fever_diagnosis_system(questions, answers, yes, no)
     elif input(questions[2]).lower() == yes:
         if input(questions[9]).lower() == yes:
             print(answers[7])
         elif input(questions[10]).lower() == yes:
             print(answers[8])
     elif input(questions[10]).lower() == no:
-        mini_fever_diagnosis_system()
+        mini_fever_diagnosis_system(questions, answers, yes, no)
+
+
+def mini_fever_diagnosis_system(questions, answers, yes, no):
+    if input(questions[3]).lower() == yes:
+        print(answers[1])
+    elif input(questions[4]).lower() == yes:
+        print(answers[2])
+    elif input(questions[5]).lower() == yes:
+        print(answers[3])
+    elif input(questions[6]).lower() == yes:
+        print(answers[4])
+    elif input(questions[7]).lower() == yes:
+        print(answers[5])
+    elif input(questions[8]).lower() == yes:
+        print(answers[6])
+    else:
+        print(answers[2])
+
 
 main()

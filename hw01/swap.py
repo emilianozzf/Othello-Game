@@ -2,14 +2,14 @@
 word1 = input("Enter word #1: ")
 word2 = input("Enter word #2: ")
 
-# Enter your code here to swap what’s 
+# Enter your code here to swap what’s
 # in the variables word1 and word2.
 tmp = word1
 word1 = word2
 word2 = tmp
 
 # Print results.
-print() # prints blank line
+print()  # prints blank line
 
 print("Swapping results")
 print("word #1:", word1)

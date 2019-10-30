@@ -1,5 +1,6 @@
 import math
 
+
 def main():
     x1 = float(input("x1: "))
     y1 = float(input("y1: "))
@@ -8,6 +9,7 @@ def main():
 
     distance = math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
 
-    print ("The distance between two points is ", distance, ".", sep="")
+    print("The distance between two points is ", distance, ".", sep="")
+
 
 main()

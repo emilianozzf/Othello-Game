@@ -27,4 +27,5 @@ def print_a_row(num_of_whitespace, num_of_asterisk):
           ASTERISK * num_of_asterisk +
           WHITESPACE * (num_of_whitespace // 2))
 
+
 main(int(sys.argv[1]))

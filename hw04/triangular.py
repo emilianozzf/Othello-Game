@@ -11,4 +11,5 @@ def main(in_num):
 
     print(tri_num)
 
+
 main(int(sys.argv[1]))

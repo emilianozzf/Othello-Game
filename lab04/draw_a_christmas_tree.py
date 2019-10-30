@@ -26,4 +26,5 @@ def main():
                   LEFT_EDGE + BASE * (i - 2) + RIGHT_EDGE +
                   ((base - i) // 2) * WHITESPACE)  # prints the last line
 
+
 main()

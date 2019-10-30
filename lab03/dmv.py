@@ -1,22 +1,38 @@
 import random as rnd  # import random library and name it "rnd" for short
 
+
 def main():
+    # Get user's full name
     full_name = input("""Welcome to the DMV (estimated wait time is 3 hours)
-Please enter your first, middle, and last name:\n""")  # get user's full name
-    birthday = input("Enter date of birth (MM/DD/YY):\n")  # get user's birthday
+Please enter your first, middle, and last name:\n""")
+    # Get user's birthday
+    birthday = input("Enter date of birth (MM/DD/YY):\n")
 
-    driver_licence_number = rnd.randint(1000000, 9999999)  # get an random 7-digit integer as driver licence number
-    name_break1 = full_name.find(" ")  # find position of space between first name and middle name
-    name_break2 = full_name.rfind(" ")  # find position of space between middle name and last name
-    first_name = full_name[0].upper() + full_name[1:name_break1].lower()  # slice first name out of full name
-    if (name_break1 != name_break2):  # check whether there is middle name in full name
-        middle_name = full_name[name_break1 + 1].upper() + full_name[name_break1 + 2:name_break2].lower()  # slice middle name out of full name
+    # Get an random 7-digit integer as driver licence number
+    driver_licence_number = str(rnd.randint(0, 9999999))
+    driver_licence_number = ((7 - len(driver_licence_number))*'0'
+                             + driver_licence_number)
+    # Find position of space between first name and middle name
+    name_break1 = full_name.find(" ")
+    # Find position of space between middle name and last name
+    name_break2 = full_name.rfind(" ")
+    # Slice first name out of full name
+    first_name = full_name[0].upper() + full_name[1:name_break1].lower()
+    # Check whether there is middle name in full name
+    if (name_break1 != name_break2):
+        # Slice middle name out of full name
+        middle_name = (full_name[name_break1 + 1].upper()
+                       + full_name[name_break1 + 2:name_break2].lower())
     else:
-        middle_name = ""  # set middle name as empty string
-    last_name = full_name[name_break2 + 1].upper() + full_name[name_break2 + 2:].lower()  # slice last name out of full name
-    expiration_date = birthday[:6] + "21"  # get expiration date from birthday
+        # Set middle name as empty string
+        middle_name = ""
+    # Slice last name out of full name
+    last_name = (full_name[name_break2 + 1].upper()
+                 + full_name[name_break2 + 2:].lower())
+    # Get expiration date from birthday
+    expiration_date = birthday[:6] + "21"
 
-    # print out driver license's basic information
+    # Print out driver license's basic information
     print("-------------------------------------")
     print("Washington Driver License")
     print("DL", driver_licence_number)

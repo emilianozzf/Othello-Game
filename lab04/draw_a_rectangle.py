@@ -21,4 +21,5 @@ def main():
             print(symbol + WHITESPACE * (width - 2) + symbol)  # prints
             # the lines left
 
+
 main()

@@ -16,4 +16,5 @@ def main(n):
 
     print(fib_seq)
 
+
 main(int(sys.argv[1]))

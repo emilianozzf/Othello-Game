@@ -36,4 +36,5 @@ def main():
         print("Not a magic square!")  # shows the given square is not
         # a magic sqaure
 
+
 main()

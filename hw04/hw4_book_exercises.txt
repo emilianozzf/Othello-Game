@@ -1,7 +1,6 @@
 1.
-A: No. The sum is required to be of all the entered nonnegative numbers.
-The change of the condition of the if statement from >= to > would omit those
-entered 0s.
+A: Yes. Adding 0 or not isn't changing the result. Skipping the = sign will
+skip adding 0. The result should be the same.
 
 2.
 A: No. The variable entry's initial value is 0. The loop could not even start

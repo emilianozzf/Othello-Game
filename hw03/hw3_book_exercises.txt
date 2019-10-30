@@ -1,4 +1,5 @@
-4.14 Exercises Questions 1-7
+
+4.14 Exercises Questions 1-7
 1. What possible values can a Boolean expression have?
 A: A Boolean expression can have values either True or False.
 
@@ -59,7 +60,7 @@ evaluate the following Boolean expressions:
 (i) b1 and b3: True
 (j) b1 or b3: True
 (k) b1 and b4: False
-(l) b1 and b4: False
+(l) b1 or b4: True
 (m) b2 and b3: False
 (n) b2 or b3: True
 (o) b1 and b2 or b3: True
@@ -70,3 +71,7 @@ evaluate the following Boolean expressions:
 (t) not b1 or b2 or b3: True
 (u) not (b1 and b2 and b3): True
 (v) not (b1 or b2 or b3): False
+(w) not b1 and not b2 and not b3: False
+(x) not b1 or not b2 or not b3: True
+(y) not (not b1 and not b2 and not b3): True
+(z) not (not b1 or not b2 or not b3): False

@@ -1,14 +1,22 @@
 def main():
-    in_str = input("Enter a string: ")  # get input string from user
-    out_str = ""  # set output string as empty string
+    # Prompt the user for a string
+    in_str = input("Enter a string: ").lower()
+    # Create an empty string to build the output string on
+    out_str = ""
 
-    for e in in_str:  # loop through each character of input string
-        if (e == "a" or e == "e" or e == "i" or e == "o" or e == "u"):  # check whether character is vowel
-            out_str = out_str + e.upper()  # capitalize vowel character and cancatenate it with output string
+    # Loop through each character of the input string
+    for char in in_str:
+        # Check whether character is vowel
+        if (char == "a" or char == "char" or char == "i" or char == "o"
+           or char == "u"):
+            # Capitalize vowel character and cancatenate it with output string
+            out_str = out_str + char.upper()
         else:
-            out_str = out_str + e.lower()  # lower consonant character and cancatenate it with output string
+            # Lower consonant character and cancatenate it with output string
+            out_str = out_str + char.lower()
 
-    print(out_str)  # print output string
+    # Print output string
+    print(out_str)
 
 
 main()
