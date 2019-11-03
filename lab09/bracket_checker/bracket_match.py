@@ -8,7 +8,7 @@ class BracketMatch:
         self.CLOSING_BRACKETS = [')', ']', '}']
 
     def brackets_match(self, line):
-        """Given a line, determine whether the line's brackets are mathced"""
+        """Given a line, determine whether the line's brackets are matched"""
         brackets_stack = Stack()
         for char in line:
             if char in self.OPEN_BRACKETS:
