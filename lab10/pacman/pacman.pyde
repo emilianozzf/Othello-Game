@@ -8,7 +8,11 @@ y = HEIGHT/2
 x_add = 0
 y_add = 0
 direction = 0
-time = 0
+MOUTH_MAX_ANGLE = 45
+MOUTH_MIN_ANGLE = 0
+MOUTH_SPEED = 5
+mouth_angle = 45
+open_close = 0
 
 
 def setup():
@@ -18,12 +22,18 @@ def setup():
     noStroke()
 
 def draw():
-    global x, y, time
+    global x, y, open_close, mouth_angle
     background(0)
 
     x = x + x_add
     y = y + y_add
-    time += 0.7
+
+    if mouth_angle == MOUTH_MAX_ANGLE:
+        open_close = -MOUTH_SPEED
+    if mouth_angle == MOUTH_MIN_ANGLE:
+        open_close = +MOUTH_SPEED
+
+    mouth_angle += open_close
 
     # The following cases deal with when PacMan
     # is near the edge of the screen
@@ -36,36 +46,36 @@ def draw():
     elif (x > WIDTH - (PACMAN_WIDTH/2)):
         # draw a second PacMan on the left side, also
         # overlapping
-        pacman(x - WIDTH, y, time)
+        pacman(x - WIDTH, y)
     
     # If PacMan moves past the bottom edge, 
     # redraw at the top
     if (y > HEIGHT + (PACMAN_HEIGHT/2)):
         y = PACMAN_HEIGHT/2
     elif (y > HEIGHT - (PACMAN_HEIGHT/2)):
-        pacman(x, y - HEIGHT, time)
+        pacman(x, y - HEIGHT)
         
     # If PacMan moves past the left edge, 
     # redraw at the right   
     if (x < -(PACMAN_WIDTH/2)): 
         x = WIDTH - (PACMAN_WIDTH/2)
     elif (x < PACMAN_WIDTH/2):
-        pacman(x + WIDTH, y, time)
+        pacman(x + WIDTH, y)
     
     # If PacMan moves past the top, redraw at bottom
     if (y < -(PACMAN_HEIGHT/2)):
         y = HEIGHT - (PACMAN_HEIGHT/2)
     elif (y < PACMAN_HEIGHT/2):
-        pacman(x, y + HEIGHT, time)
+        pacman(x, y + HEIGHT)
     
     # Always draw PacMan at his real current location.
-    pacman(x, y, time)
+    pacman(x, y)
 
-def pacman(x, y, time):
+def pacman(x, y):
     """Draw PacMan to the screen"""
     arc(x, y, PACMAN_WIDTH, PACMAN_HEIGHT,
-        radians(direction + (22.5 + 22.5*sin(time))),
-        radians((360 + direction) - (22.5 + 22.5*sin(time))))
+        radians(direction + mouth_angle),
+        radians((360 + direction) - mouth_angle))
 
 def keyPressed():
     global x_add, y_add, direction
