@@ -26,7 +26,9 @@ def test_constructor():
 
 
 def test_eat():
-    assert False
+    ds = Dots(600, 600, 150, 450, 150, 450)
+    ds.eat(150, 150)
+    assert ds.top_row[2].x != 150
 
 
 def test_dots_left():

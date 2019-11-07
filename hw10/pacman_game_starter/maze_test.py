@@ -16,5 +16,9 @@ def test_constructor():
     assert m.dots.dots_left() == ((m.dots.WIDTH//m.dots.SPACING + 1) * 2 +
                                   (m.dots.HEIGHT//m.dots.SPACING + 1) * 2)
 
+
 def test_eat_dots():
-    assert False
+    g = GameController(600, 400)
+    m = Maze(600, 600, 150, 450, 150, 450, g)
+    m.eat_dots(150, 150)
+    assert m.dots.top_row[2].x != 150

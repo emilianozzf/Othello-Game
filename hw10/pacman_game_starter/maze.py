@@ -18,12 +18,10 @@ class Maze:
                          LEFT_VERT, RIGHT_VERT,
                          TOP_HORIZ, BOTTOM_HORIZ)
 
-    # TODO:
     # PROBLEM 3: implement dot eating
     # BEGIN CODE CHANGES
-    def eat_dots(self):  # You might want/need to pass arguments here.
-        pass
-
+    def eat_dots(self, x, y):
+        self.dots.eat(x, y)
     # END CODE CHANGES
 
     def update(self):
