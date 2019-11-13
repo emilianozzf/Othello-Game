@@ -64,9 +64,8 @@ class Pinky(GameCharacter):
                 abs(left_right_part) < self.WIN_PROXIMITY):
             self.gc.pinky_wins = True
 
-        # PROBLEM 2: Make Pinky chase Pacman!
-        # Pinky should decide at each intersection whether to go left, right
-        # up or down depending on which direction Pacman is further away in.
+        # Pinky decide at each intersection whether to go left, right up or
+        # down depending on which direction Pacman is further away in.
         # START CODE CHANGES
         if on_vert and on_horz:
             if left_right_part and abs(up_down_part) <= abs(left_right_part):

@@ -53,11 +53,10 @@ class Pacman(GameCharacter):
         self.on_bottom = (abs(self.y - self.maze.BOTTOM_HORIZ) <
                           self.WALL_TOLERANCE)
 
-        if (self.mouth_angle >= self.max_mouth_angle):
+        if (self.mouth_angle == self.max_mouth_angle):
             self.open_close = -(self.mouth_speed)
-        if (self.mouth_angle <= self.min_mouth_angle):
+        if (self.mouth_angle == self.min_mouth_angle):
             self.open_close = self.mouth_speed
-        self.mouth_angle = self.mouth_angle + self.open_close
 
         # If the game is over and Pacman wins, stop moving
         if self.gc.player_wins:
@@ -71,13 +70,10 @@ class Pacman(GameCharacter):
             self.x_add = 0
             self.y_add = 0
 
+        self.mouth_angle = self.mouth_angle + self.open_close
         self.x = self.x + self.x_add
         self.y = self.y + self.y_add
 
-        # PROBLEM 3: implement dot eating
-        # PacMan has access to the maze object, which
-        # in turn has access to the dots object. Call the
-        # eat_dots method on the maze object here.
         # Based on PacMan's location, PacMan should gobble
         # dots from a different list.
         # BEGIN CODE CHANGES
@@ -85,7 +81,7 @@ class Pacman(GameCharacter):
         # END CODE CHANGES
 
     def control(self, keyCode):
-        """Handles keyboard input for PacMan"""
+        """Handle keyboard input for PacMan"""
         if (keyCode == DOWN and (self.on_left or self.on_right)):
             if self.on_left:
                 self.x = self.maze.LEFT_VERT

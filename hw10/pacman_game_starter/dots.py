@@ -14,6 +14,7 @@ class Dots:
         self.RV = RIGHT_VERT
         self.SPACING = 75
         self.EAT_DIST = 50
+        self.WALL_TOLERENCE = 6
         # Initialize four rows of dots, based on spacing and width of the maze
         self.top_row = [Dot(self.SPACING * i, self.TH)
                         for i in range(self.WIDTH//self.SPACING + 1)]
@@ -35,10 +36,10 @@ class Dots:
         for i in range(0, len(self.right_col)):
             self.right_col[i].display()
 
-    # PROBLEM 3: implement dot eating
     # BEGIN CODE CHANGES
     def eat(self, x, y):
-        if y == self.TH:
+        """Dot eating"""
+        if abs(y - self.TH) < self.WALL_TOLERENCE:
             for dot in self.top_row:
                 if abs(x-dot.x) <= self.EAT_DIST:
                     if dot.x == 0 or dot.x == self.WIDTH:
@@ -46,7 +47,7 @@ class Dots:
                         self.top_row.pop()
                     else:
                         self.top_row.remove(dot)
-        if y == self.BH:
+        if abs(y - self.BH) < self.WALL_TOLERENCE:
             for dot in self.bottom_row:
                 if abs(x-dot.x) <= self.EAT_DIST:
                     if dot.x == 0 or dot.x == self.WIDTH:
@@ -54,7 +55,7 @@ class Dots:
                         self.bottom_row.pop()
                     else:
                         self.bottom_row.remove(dot)
-        if x == self.LV:
+        if abs(x - self.LV) < self.WALL_TOLERENCE:
             for dot in self.left_col:
                 if abs(y-dot.y) <= self.EAT_DIST:
                     if dot.y == 0 or dot.y == self.WIDTH:
@@ -62,7 +63,7 @@ class Dots:
                         self.left_col.pop()
                     else:
                         self.left_col.remove(dot)
-        if x == self.RV:
+        if abs(x - self.RV) < self.WALL_TOLERENCE:
             for dot in self.right_col:
                 if abs(y-dot.y) <= self.EAT_DIST:
                     if dot.y == 0 or dot.y == self.WIDTH:
