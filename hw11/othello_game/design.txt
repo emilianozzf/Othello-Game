@@ -1,0 +1,80 @@
+class Tile:
+    """A tile"""
+    def __init__(self, column, row, color):
+
+    def display(self):
+        """Draw the tile"""
+
+
+class Tiles:
+    """A collection of tiles"""
+    def __init__(self, WIDTH, HEIGHT):
+        # Use a list of lists to store a collection of tiles
+        self.tiles = [[None for j in range(self.COLS)]
+                      for i in range(self.ROWS)]
+
+        # Use a dictionary to keep count of black and white tiles
+        self.tile_counts = {"black": 2, "white": 2}
+
+    def display(self):
+        """Draw a collection of tiles"""
+
+    def put_tile(self, x, y, color):
+        """Put a new tile at a valid position of the collection"""
+
+
+class GameController:
+    """Maintain the state of the game"""
+    def __init__(self, WIDTH, HEIGHT):
+
+    def update(self):
+        """Carries out necessary actions if players tie"""
+
+
+class Board:
+    """Draw the board and handle interaction between players and tiles"""
+    def __init__(self, WIDTH, HEIGHT, game_controller):
+
+    def display(self):
+        """Display the board"""
+
+    def put_tile(self, x, y, color):
+        """Put a new tile on the board if the square is empty"""
+
+    def update(self):
+        """Make necessary per-frame updates"""
+
+
+class Player1:
+    """Player1 class"""
+    def __init__(self, board, game_controller):
+
+    def move(self, x, y):
+        """Handle keyboard input for Player1"""
+
+
+class Player2:
+    """Player2 class"""
+    def __init__(self, board, game_controller):
+
+    def move(self, x, y):
+        """Handle keyboard input for Player2"""
+
+
+A Bullet-pointed Pseudocode of my Driver (the flow of control):
+    When the user tries to make an illegal move:
+        Donnot raise an error. Do nothing instead.
+
+    When the user makes a legal move:
+        Put a new black tile on the board and flip the corresponding white
+        tiles.
+
+    When it’s the computer’s turn:
+        Pause for a little while and then put a new white tile at a legal
+        position with the best chance to beat the user. Flip the corresponding
+        black tiles.
+
+    When the game is over (there are no more legal moves):
+        Pronounce the winner and show the scores of both the user and the
+        computer. Store the user's score in the file scores.txt.
+
