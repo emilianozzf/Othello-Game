@@ -77,4 +77,3 @@ A Bullet-pointed Pseudocode of my Driver (the flow of control):
     When the game is over (there are no more legal moves):
         Pronounce the winner and show the scores of both the user and the
         computer. Store the user's score in the file scores.txt.
-
