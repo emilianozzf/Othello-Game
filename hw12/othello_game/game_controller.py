@@ -3,31 +3,62 @@ class GameController:
     def __init__(self, WIDTH, HEIGHT):
         self.WIDTH = WIDTH
         self.HEIGHT = HEIGHT
+        # Let the human (player1) go first
         self.player1_turn = True
-        self.player1_no_legal_moves_left = False
-        self.player2_no_legal_moves_left = False
         self.game_over = False
         self.player1_score = 2
         self.player2_score = 2
+        self.delay_counter = 100
 
     def update(self):
         """Carry out necessary updates per-frame"""
-        if self.player1_turn and self.player1_no_legal_moves_left:
-            self.player1_turn = not self.player1_turn
+        # If the game is not over
+        if not self.game_over:
+            # If it's human's (player1's) turn
+            if self.player1_turn:
+                # Create delay before showing the announcement
+                if 50 < self.delay_counter <= 100:
+                    # Count down the delay counter
+                    self.delay_counter -= 1
+                # Create delay for showing the announcement
+                elif 0 < self.delay_counter <= 50:
+                    # Announce it's human's (player1's) turn
+                    fill(0.7, 0.5, 0.2)
+                    textSize(50)
+                    text("It's your turn", self.WIDTH/2 - 150, self.HEIGHT/2)
+                    # Count down the delay counter
+                    self.delay_counter -= 1
 
-        if (not self.player1_turn) and (self.player2_no_legal_moves_left):
-            self.player1_turn = not self.player1_turn
+        # If the game is not over
+        if not self.game_over:
+            # If it's computer's (player2's) turn
+            if not self.player1_turn:
+                # Create delay before showing the announcement
+                if 50 < self.delay_counter <= 100:
+                    # Count down the delay counter
+                    self.delay_counter -= 1
+                # Create delay for showing the announcement
+                elif 0 < self.delay_counter <= 50:
+                    # Announcing it's computer's (player2's) turn
+                    fill(0.7, 0.5, 0.2)
+                    textSize(50)
+                    text("It's computer's turn",
+                         self.WIDTH/2 - 230,
+                         self.HEIGHT/2)
+                    # Count down the delay counter
+                    self.delay_counter -= 1
 
+        # If the game is over
         if self.game_over:
             fill(0.7, 0.5, 0.2)
             textSize(50)
             if self.player1_score == self.player2_score:
                 text("PLAYERS TIE", self.WIDTH/2 - 140, self.HEIGHT/2)
             elif self.player1_score > self.player2_score:
-                text("PLAYER1 WIN", self.WIDTH/2 - 140, self.HEIGHT/2)
+                text("YOU WIN!", self.WIDTH/2 - 140, self.HEIGHT/2)
             else:
-                text("COMPUTER WIN", self.WIDTH/2 - 140, self.HEIGHT/2)
-            text("PLAYER1: " + str(self.player1_score),
-                 self.WIDTH/2 - 130, self.HEIGHT/2 + 60)
+                text("COMPUTER WIN!", self.WIDTH/2 - 140, self.HEIGHT/2)
+            text("YOU: " + str(self.player1_score),
+                 self.WIDTH/2 - 140, self.HEIGHT/2 + 60)
             text("COMPUTER: " + str(self.player2_score),
-                 self.WIDTH/2 - 130, self.HEIGHT/2 + 120)
+                 self.WIDTH/2 - 140, self.HEIGHT/2 + 120)
