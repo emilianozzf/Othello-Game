@@ -1,0 +1,37 @@
+• Did you attempt to make your computer player very smart -- i.e., do something
+  more clever than just pick a random legal move?
+  A:
+  Yes, I attempted to make my computer player (Player2) do something more
+  clever than just pick a random legal move.
+
+• If so, were you able to accomplish this? Is your computer player as smart as
+  you would like?
+  A:
+  Yes, I was able to accomplish this. And my computer player (Player2) is as
+  smart as I would like.
+
+• How did you determine which piece to play next? Tell us about your “pick next
+  move” algorithm?
+  A:
+  Loop through every square on the board:
+      If the square is empty:
+          Search for all possible flips for this empty square.
+          If there are flips for this empty square:
+              Count all the flips in all the directions and keep the counts in
+              a dictionary.
+
+  If there are flips in the dictionary:
+      Sort the flip counts for all the legal moves in ascending order.
+      Find the best move that has the most flip count.
+
+• How often did your computer program beat you, or your friends, or whoever
+  tested it out for you?
+  A:
+  There were 50% chance that the computer (Player2) would beat me, or my
+  friends.
+
+• How would you improve it in the future?
+  A:
+  I would take the distance of legal move to the boundaries into account
+  because the closer it is, the greater the chance to compass and flips more
+  opposing tiles is.

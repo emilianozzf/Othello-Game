@@ -9,6 +9,8 @@ class GameController:
         self.player1_score = 2
         self.player2_score = 2
         self.delay_counter = 100
+        self.is_saved = False
+        self.delay_counter2 = 120
 
     def update(self):
         """Carry out necessary updates per-frame"""
@@ -62,3 +64,50 @@ class GameController:
                  self.WIDTH/2 - 140, self.HEIGHT/2 + 60)
             text("COMPUTER: " + str(self.player2_score),
                  self.WIDTH/2 - 140, self.HEIGHT/2 + 120)
+
+            self.delay_counter2 -= 1
+            if self.delay_counter2 == 0 and not self.is_saved:
+                user_name = self.input("Enter your name:")
+                if user_name:
+                    try:
+                        f_to_r = open("scores.txt", "r")
+                    except FileNotFoundError:
+                        print("Can't find scores.txt")
+
+                    highest = True
+                    lines = []
+                    user_score = self.player1_score
+                    for line in f_to_r:
+                        lines.append(line)
+                        the_score = int(line.strip().split(" ")[1])
+                        if the_score >= user_score:
+                            highest = False
+
+                    f_to_r.close()
+
+                    if highest:
+                        lines.insert(0, user_name+" "+str(user_score)+"\n")
+                    else:
+                        lines.append(user_name+" "+str(user_score)+"\n")
+
+                    try:
+                        f_to_w = open("scores.txt", "w")
+                    except FileNotFoundError:
+                        print("Can't find scores.txt")
+
+                    for line in lines:
+                        f_to_w.write(line)
+
+                    f_to_w.close()
+                    self.is_saved = True
+
+                elif user_name == '':
+                    print('[empty string]')
+                else:
+                    print(user_name)  # Canceled dialog will print None
+
+                self.delay_counter2 = 120
+
+    def input(self, message=''):
+        from javax.swing import JOptionPane
+        return JOptionPane.showInputDialog(frame, message)
