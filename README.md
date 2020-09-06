@@ -16,7 +16,7 @@ INTRODUCTION
 Othello is a strategy board game for two players (human vs. computer AI),
 played on an 8×8 board.
 
-https://media.giphy.com/media/lnUWX6NVAGaVbngod9/giphy.gif
+<img src="https://media.giphy.com/media/lnUWX6NVAGaVbngod9/giphy.gif">
 
 
 REQUIREMENTS
