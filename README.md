@@ -1,4 +1,4 @@
-<h1 align="center">VueSolitaire</h1>
+<h1 align="center">Othello Game</h1>
 <h2 align="center">
 
 [![Mentioned in Awesome Vue.js](https://awesome.re/mentioned-badge.svg)](https://github.com/vuejs/awesome-vue)
